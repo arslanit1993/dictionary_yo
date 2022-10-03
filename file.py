@@ -1,0 +1,1 @@
+a = ({'word': 'i', 'translation': 'ben', 'rating': 6}, {'word': 'you', 'translation': 'sen', 'rating': 6})

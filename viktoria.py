@@ -4,7 +4,6 @@ from file import*
 
 #GET THE DICTIONARY 
 my_new_rec = json.load((open("My_Record.json")))
-print(my_new_rec)
 
 
 
@@ -16,7 +15,16 @@ def writer(arg_1):
         f.close()
 
 
-#WORD ADDER 
+#THE LOWEST GETTER
+def low_getter(a):
+    the_ratings = []
+    the_lowest = 0
+    for i in range(len(a)):
+        the_ratings.append(a[i]["rating"])    
+    the_lowest = min(the_ratings)
+    return the_lowest 
+
+
 
 
 
@@ -82,7 +90,8 @@ def add_new_word(a):
         if a[i]["word"] == d["word"]:
             return f"Sorry The word {d['word']} is already in the list"
     d["translation"] = input(f"Enter the Translation of the word {d['word']}")
-    d["rating"] = 0
+    d["rating"] = low_getter(my_new_rec)
+
     get_input = input((d['word'].lower(), " with the translation ", d["translation"].lower(), " has been added to the list, press y to confirm or n to decline"))
     if get_input.lower() == "y":
         a.append(d)
